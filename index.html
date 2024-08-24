@@ -4,6 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
     <title>Stopwatch</title>
   </head>
   <body>
@@ -11,13 +18,13 @@
       <h1 class="title">Stopwatch Timer</h1>
       <div class="stopwatch">
         <div class="timer">
-          <span id="minutes">00</span>: <span id="seconds">00</span>:
-          <span id="milliseconds">00</span>
+          <span id="hours">00</span>: <span id="minutes">00</span>:
+          <span id="seconds">00</span>
         </div>
 
         <div class="controls">
           <button class="startBtn">Start</button>
-          <button class="stopBtn">Stop</button>
+          <button class="stopBtn">Lap</button>
           <button class="pauseBtn">Pause</button>
           <button class="resetBtn">Reset</button>
         </div>
@@ -28,6 +35,7 @@
         </div>
       </div>
     </div>
+
     <script src="script.js"></script>
   </body>
 </html>

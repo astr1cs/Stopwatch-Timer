@@ -4,15 +4,19 @@
   box-sizing: border-box;
 }
 body {
-  background: linear-gradient(25deg, #f181aa, #d36c76);
+  /* background: linear-gradient(25deg, #f181aa, #d36c76);
+   */
+  background-image: url("./images/img2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  font-family: sans-serif;
+  font-family: "Lato", sans-serif;
   align-items: center;
 }
 .container {
-  background-color: #eee9e9;
+  background-color: #ffffff;
   border-radius: 16px;
   padding: 20px;
   display: flex;
@@ -35,7 +39,6 @@ body {
   padding: 20px;
   font-size: 40px;
   background-color: #ffffff;
-  font-size: 30px;
   border-radius: 8px;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
   animation: pulse 1.5s infinite alternate;
@@ -61,7 +64,8 @@ button {
   padding: 0.75rem 1.5rem;
 
   font-size: 1rem;
-  background-color: #f25191;
+  /* background-color: #f25191; */
+  background-color: #7695ff;
   color: #ffffff;
   border: none;
   border-radius: 8px;
@@ -95,4 +99,35 @@ li:last-child {
 }
 li span {
   font-weight: 700;
+}
+
+@media (max-width: 450px) {
+  .container {
+    padding: 10px;
+  }
+  .title {
+    font-size: 25px;
+    margin-bottom: 1.5rem;
+  }
+  .timer {
+    padding: 15px;
+    font-size: 25px;
+  }
+  .timer span {
+    width: 80px;
+  }
+  .controls {
+    gap: 0.6rem;
+  }
+  button {
+    padding: 0.4rem 1.2rem;
+    font-size: 0.8rem;
+  }
+  .lap-title {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+  ul {
+    font-size: 0.8rem;
+  }
 }

@@ -1,6 +1,6 @@
 const minLabel = document.querySelector("#minutes");
-const msLabel = document.querySelector("#milliseconds");
-const secLabel = document.querySelector("#seconds");
+const sLabel = document.querySelector("#seconds");
+const hoursLabel = document.querySelector("#hours");
 
 const startButton = document.querySelector(".startBtn");
 const stopButton = document.querySelector(".stopBtn");
@@ -13,17 +13,17 @@ const lapList = document.querySelector("#laplist");
 
 let minutes = 0;
 let seconds = 0;
-let mSeconds = 0;
+let hours = 0;
 let interval;
 
 const startTimer = () => {
-  interval = setInterval(updateTimer, 10);
+  interval = setInterval(updateTimer, 1000);
   startButton.disabled = true;
 };
 const stopTimer = () => {
-  clearInterval(interval);
+  //   clearInterval(interval);
   addToLapList();
-  resetTimerData();
+  //   resetTimerData();
   startButton.disabled = false;
 };
 const pauseTimer = () => {
@@ -34,24 +34,25 @@ const resetTimer = () => {
   clearInterval(interval);
   resetTimerData();
   startButton.disabled = false;
+  removeLapList();
 };
 
 const updateTimer = () => {
-  mSeconds++;
-  if (mSeconds === 1000) {
-    mSeconds = 0;
-    seconds++;
-    if (seconds === 60) {
-      seconds = 0;
-      minutes++;
+  seconds++;
+  if (seconds === 60) {
+    seconds = 0;
+    minutes++;
+    if (minutes === 60) {
+      minutes = 0;
+      hours++;
     }
   }
   displayTimer();
 };
 const displayTimer = () => {
-  msLabel.textContent = padTimer(mSeconds);
-  secLabel.textContent = padTimer(seconds);
   minLabel.textContent = padTimer(minutes);
+  sLabel.textContent = padTimer(seconds);
+  hoursLabel.textContent = padTimer(hours);
 };
 
 const padTimer = (time) => {
@@ -60,21 +61,23 @@ const padTimer = (time) => {
 const resetTimerData = () => {
   minutes = 0;
   seconds = 0;
-  mSeconds = 0;
+  hours = 0;
   displayTimer();
 };
 
 const addToLapList = () => {
-  const lapTime = `${padTimer(minutes)}:${padTimer(seconds)}:${padTimer(
-    mSeconds
+  const lapTime = `${padTimer(hours)}:${padTimer(minutes)}:${padTimer(
+    seconds
   )}`;
   const listItem = document.createElement("li");
   listItem.innerHTML = `<span>Lap ${
     lapList.childElementCount + 1
-  }:</span>${lapTime}`;
+  }: </span>${lapTime}`;
   lapList.appendChild(listItem);
 };
-
+const removeLapList = () => {
+  lapList.innerHTML = "";
+};
 startButton.addEventListener("click", startTimer);
 stopButton.addEventListener("click", stopTimer);
 pauseButton.addEventListener("click", pauseTimer);
